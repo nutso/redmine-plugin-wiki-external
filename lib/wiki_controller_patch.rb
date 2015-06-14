@@ -18,7 +18,11 @@ module RedmineWikiExternal
         
         # core/show - will also show the form for creating a new wiki page
         def show
-          redirect_to "#{plugin_wiki_external_base_url}#{plugin_wiki_external_project_suffix}"
+          begin
+            redirect_to "#{plugin_wiki_external_base_url}#{plugin_wiki_external_project_suffix}"
+          rescue => ex
+            redirect_to Rails.root, :flash => {:error => ex.message}
+          end
         end
 
         # These actions are never visible once 'show' is overriden; not overriding to keep the 
@@ -45,13 +49,12 @@ module RedmineWikiExternal
           @project.identifier
         end
   
+        # raises exception if not set
         def plugin_wiki_external_base_url
           # clean up the setting ... not sure if there's a way to control it better on save?
-          # TODO more cleanup ... ?
           
           if Setting.plugin_wiki_external['wiki_base_url'].empty?
-            # TODO hmm ... use redmine root?
-             Setting.plugin_wiki_external['wiki_base_url'] = "http://localhost/"
+            raise l(:error_wiki_base_url_not_set)
           end
           
           Setting.plugin_wiki_external['wiki_base_url']

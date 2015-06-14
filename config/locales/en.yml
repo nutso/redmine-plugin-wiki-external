@@ -2,3 +2,5 @@
 en:
   label_wiki_page_prefix: Wiki Prefix
   label_wiki_project_custom_suffix_field: Wiki Suffix Custom Field Name
+  
+  error_wiki_base_url_not_set: "Base URL for wiki has not been set. Please have an administrator configure this in Redmine settings or uninstall the Wiki External plugin."
