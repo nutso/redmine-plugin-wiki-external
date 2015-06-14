@@ -1,7 +1,5 @@
 # making root_path available
 # see http://stackoverflow.com/questions/22741975/undefined-local-variable-or-method-root-path
-require 'url_helpers'
-
 module RedmineWikiExternal
   # Note: Redmine's "WikisController" (plural) is used to control the overall wiki
   # The "WikiController" (singular) is used to control the wiki pages/content
