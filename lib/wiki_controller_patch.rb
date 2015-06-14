@@ -26,9 +26,9 @@ module RedmineWikiExternal
         # TODO core/destroy - normal
   
         def plugin_wiki_external_project_suffix
-          unless(Setting.plugin_wiki_external['wiki_base_url'].empty?)
+          unless(Setting.plugin_wiki_external['wiki_project_custom_suffix_field'].empty?)
             # check to see if our project custom field exists (optional)
-            field = ProjectCustomField.where(:name => Setting.plugin_wiki_external['wiki_base_url'])
+            field = ProjectCustomField.where(:name => Setting.plugin_wiki_external['wiki_project_custom_suffix_field'])
             if(field.any?)
               # check for project-specific value
               value = CustomValue.where(:custom_field_id => field.first.id, :customized_id => @project.id)
