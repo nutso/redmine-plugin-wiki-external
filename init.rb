@@ -11,7 +11,7 @@ Redmine::Plugin.register :wiki_external do
   author_url 'https://github.com/nutso/'
   url 'https://github.com/nutso/redmine-plugin-wiki-external'
   description 'Forces the use of an external wiki (e.g. separate MediaWiki installation).'
-  version '0.0.1'
+  version '1.0.0'
   
   # user-accessible global configuration
   settings :default => {

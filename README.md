@@ -19,10 +19,6 @@ Currently this plugin has been tested on MediaWiki.
 Note that the ability to list wiki pages for a given Redmine project is NOT available with external wikis. You will need to enable
 this feature on your wiki platform itself (e.g. the SubPageList extension for MediaWiki).
 
-Also note that Redmine's project identifier is used as the base wiki page on the external platform (at least for now, this is not
-customizable). If you want to use a different wiki page name as the base for the wiki, you will need to create an auto redirect
-on the external wiki page itself (e.g. #REDIRECT directive for MediaWiki).
-
 ## Installation
 
 Follow standard Redmine plugin installation see http://www.redmine.org/projects/redmine/wiki/Plugins
@@ -30,9 +26,31 @@ Follow standard Redmine plugin installation see http://www.redmine.org/projects/
 NOTE: the directory for this plugin must be named "wiki_external" -- the path should be along the lines of #{REDMINE_ROOT}/plugins/wiki_external
 
 ## Configuration
-     
-N/A
-   
+
+### Global Settings
+
+As a Redmine administrator, you can customize the global attributes via configuring Wiki External on the Administration/Plugins page.
+
+* Wiki Prefix (required) -- this should be the full wiki prefix, excluding the wiki article/page identifier. Without a 
+  valid value, the plugin will display an error directing you to configure this value every time someone wants to view a wiki page. 
+  For out-of-the-box MediaWiki installations, an example would look like `http://wiki.mywebsite.com/index.php?title=`
+  
+* Wiki Suffix Custom Field Name (optional) -- if you want the ability to customize the wiki page prefix on a per-project basis, 
+  you can set the project custom field name that you want to use to hold the wiki suffix here. See the section on Project Settings 
+  below for information on setting the project-specific suffix values. If the project custom field does not already exist (in most
+  cases it will not, but you may already have a field that you want to use), then you will need to add the project custom 
+  field to your Redmine installation. The custom field type (text, integer, etc.) does not matter to the plugin, it only pulls
+  the value, but in most cases a "text" attribute would be appropriate. 
+
+### Project Settings
+
+If the (optional) Wiki Suffix Custom Field Name attribute has been set in the plugin Global Settings, a project
+administrator can use the named field to set the project-specific wiki suffix. In the case of MediaWiki installations, 
+the wiki suffix equates to the wiki page name. 
+
+If no value is provided in this field, or if this field is not configured for the system, then the project's identifier 
+is used as the project-specific wiki suffix.
+
 ## Upgrade or Migrate Plugin
 
 Please check the Release Notes (ReleaseNotes.md) for substantive or breaking changes.
@@ -54,7 +72,7 @@ Follow standard Redmine plugin un-installation -- (barely) modified from http://
 
 1. Downgrade the database (make a db backup before)
 
-   rake redmine:plugins:migrate NAME=project_priority VERSION=0 RAILS_ENV=production
+   rake redmine:plugins:migrate NAME=wiki_external VERSION=0 RAILS_ENV=production
 
 2. Remove the plugin from the plugins folder (#{RAILS_ROOT}/plugins)
 
