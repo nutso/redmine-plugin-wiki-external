@@ -16,7 +16,7 @@ Redmine::Plugin.register :wiki_external do
   # user-accessible global configuration
   settings :default => {
     'wiki_base_url' => nil,
-    'wiki_project_custom_suffix_field' => "Wiki External Identifier"
+    'wiki_project_custom_suffix_field' => nil
   }, :partial => 'settings/wiki_external_settings'
   
   # Send patches to models and controllers

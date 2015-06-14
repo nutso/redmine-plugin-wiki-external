@@ -21,9 +21,11 @@ module RedmineWikiExternal
           redirect_to "#{plugin_wiki_external_base_url}#{plugin_wiki_external_project_suffix}"
         end
 
-        # TODO core/edit - used to edit an existing or new page
-        # TODO core/update - used to save a wiki page update to the database, including new pages
-        # TODO core/destroy - normal
+        # These actions are never visible once 'show' is overriden; not overriding to keep the 
+        # plugin interference minimal
+        # core/edit - used to edit an existing or new page
+        # core/update - used to save a wiki page update to the database, including new pages
+        # core/destroy - normal
   
         def plugin_wiki_external_project_suffix
           unless(Setting.plugin_wiki_external['wiki_project_custom_suffix_field'].empty?)
