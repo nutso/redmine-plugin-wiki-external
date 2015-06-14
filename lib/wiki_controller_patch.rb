@@ -35,10 +35,6 @@ module RedmineWikiExternal
              Setting.plugin_wiki_external['wiki_base_url'] = "http://localhost/"
           end
           
-          unless Setting.plugin_wiki_external['wiki_base_url'].ends_with?("/")
-             Setting.plugin_wiki_external['wiki_base_url'] =  Setting.plugin_wiki_external['wiki_base_url'] + "/"
-          end
-          
           Setting.plugin_wiki_external['wiki_base_url']
         end
                 
