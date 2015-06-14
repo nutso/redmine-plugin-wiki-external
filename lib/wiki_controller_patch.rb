@@ -23,7 +23,7 @@ module RedmineWikiExternal
           begin
             redirect_to "#{plugin_wiki_external_base_url}#{plugin_wiki_external_project_suffix}"
           rescue => ex
-            redirect_to :root_url, :flash => {:error => ex.message}
+            redirect_to :root, :flash => {:error => ex.message}
           end
         end
 
