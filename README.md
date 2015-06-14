@@ -1,7 +1,5 @@
 # redmine-plugin-wiki-external
 
-~~ This plugin is *not* ready for prime-time yet. Feedback/testing/contributions always welcome! ~~
-
 Redmine plugin that forces the use of an external wiki (e.g. separate MediaWiki installation) instead of the internal Redmine wiki.
 
 This does *NOT* import information from the wiki; primarily it overwrites navigation so all wiki links point to the external wiki.
