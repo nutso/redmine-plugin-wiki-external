@@ -1,9 +1,12 @@
-
 <table>
 	<tbody>
 		<tr>
 			<th><%=l(:label_wiki_page_prefix)%></th>
 			<td><input type="text" id="wiki_base_url" value="<%= settings['wiki_base_url'] %>" name="settings[wiki_base_url]" /></td>
+		</tr>
+		<tr>
+			<th><%=l(:label_wiki_project_custom_suffix_field)%></th>
+			<td><input type="text" id="wiki_project_custom_suffix_field" value="<%= settings['wiki_project_custom_suffix_field'] %>" name="settings[wiki_project_custom_suffix_field]" /></td>
 		</tr>
 	</tbody>	
 </table>

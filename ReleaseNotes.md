@@ -6,10 +6,16 @@
 ## Known Issues
 
 
-## Next Version (Develop Branch)
+
+## Semi-stable (Master Branch)
+
+
+
+## Unstable (Develop Branch)
 
 
 
 ## Version 0.0.1 (TBD)
 
 * Initial plugin functionality
+* Ability to configure a system-wide wiki prefix to which to append the Redmine project identifier for links to the project wiki
