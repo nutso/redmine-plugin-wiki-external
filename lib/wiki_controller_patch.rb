@@ -33,7 +33,7 @@ module RedmineWikiExternal
               # check for project-specific value
               value = CustomValue.where(:custom_field_id => field.first.id, :customized_id => @project.id)
               if value.any?
-                return value.first.value
+                return value.first.value unless value.first.value.empty?
               end
             end
           end
