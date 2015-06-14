@@ -1,3 +1,7 @@
+# making root_path available
+# see http://stackoverflow.com/questions/22741975/undefined-local-variable-or-method-root-path
+require 'url_helpers'
+
 module RedmineWikiExternal
   # Note: Redmine's "WikisController" (plural) is used to control the overall wiki
   # The "WikiController" (singular) is used to control the wiki pages/content
@@ -21,7 +25,7 @@ module RedmineWikiExternal
           begin
             redirect_to "#{plugin_wiki_external_base_url}#{plugin_wiki_external_project_suffix}"
           rescue => ex
-            redirect_to root_path, :flash => {:error => ex.message}
+            redirect_to :root_path, :flash => {:error => ex.message}
           end
         end
 
