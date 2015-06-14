@@ -34,14 +34,14 @@ module RedmineWikiExternal
         # core/destroy - normal
   
         def plugin_wiki_external_project_suffix
-          unless(Setting.plugin_wiki_external['wiki_project_custom_suffix_field'].empty?)
+          unless(Setting.plugin_wiki_external['wiki_project_custom_suffix_field'].blank?)
             # check to see if our project custom field exists (optional)
             field = ProjectCustomField.where(:name => Setting.plugin_wiki_external['wiki_project_custom_suffix_field'])
             if(field.any?)
               # check for project-specific value
               value = CustomValue.where(:custom_field_id => field.first.id, :customized_id => @project.id)
               if value.any?
-                return value.first.value unless value.first.value.empty?
+                return value.first.value unless value.first.value.blank?
               end
             end
           end
@@ -55,7 +55,7 @@ module RedmineWikiExternal
         def plugin_wiki_external_base_url
           # clean up the setting ... not sure if there's a way to control it better on save?
           
-          if Setting.plugin_wiki_external['wiki_base_url'].empty?
+          if Setting.plugin_wiki_external['wiki_base_url'].blank?
             raise l(:error_wiki_base_url_not_set)
           end
           
