@@ -18,7 +18,7 @@ module RedmineWikiExternal
         
         # core/show - will also show the form for creating a new wiki page
         def show
-          redirect_to "#{plugin_wiki_external_base_url}/#{@project.identifier}"
+          redirect_to "#{plugin_wiki_external_base_url}#{@project.identifier}"
         end
 
         # TODO core/edit - used to edit an existing or new page
