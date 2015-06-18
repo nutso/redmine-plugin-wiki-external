@@ -23,7 +23,7 @@ Redmine::Plugin.register :wiki_external do
   
   
   Redmine::MenuManager.map :application_menu do |menu|
-    menu.push :wikis, { :controller => 'wikis', :action => 'index' }, :caption => Settings.plugin_wiki_external['wiki_home_caption'], :if => Proc.new { (Setting.plugin_wiki_external['show_wiki_home_in_app_menu'] == "1")}
+    menu.push :wikis, { :controller => 'wikis', :action => 'index' }, :caption => Setting.plugin_wiki_external['wiki_home_caption'], :if => Proc.new { (Setting.plugin_wiki_external['show_wiki_home_in_app_menu'] == "1")}
   end
 
   
